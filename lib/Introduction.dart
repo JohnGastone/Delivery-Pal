@@ -91,16 +91,19 @@ class _IntroductionPageState extends State<IntroductionPage> {
     );
   }
 
-  Widget _buildTitle(bool isDesktop, bool isTablet) => Text(
-        "Royal Oven's Delivery Pal",
-        style: GoogleFonts.poppins(
-          fontSize: isDesktop
-              ? 64
-              : isTablet
-                  ? 52
-                  : 43,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
+  Widget _buildTitle(bool isDesktop, bool isTablet) => Center(
+        child: Text(
+          "Royal Oven's Delivery \nPal", // Removed unnecessary spaces
+          textAlign: TextAlign.center, // Centers text properly
+          style: GoogleFonts.poppins(
+            fontSize: isDesktop
+                ? 64
+                : isTablet
+                    ? 52
+                    : 35,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       );
 
@@ -116,7 +119,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
                 ? 24
                 : isTablet
                     ? 20
-                    : 18,
+                    : 15,
             color: Colors.white,
           ),
         ),
