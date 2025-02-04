@@ -79,7 +79,22 @@ class _IntroductionPageState extends State<IntroductionPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: isDesktop ? size.height * 0.4 : size.height * 0.3),
+          SizedBox(height: isDesktop ? size.height * 0.4 : size.height * 0.05),
+          Image.asset(
+            'assets/delivery.png',
+            height: isDesktop
+                ? size.height * 0.35 // Adjust height based on screen size
+                : isTablet
+                    ? size.height * 0.3
+                    : size.height * 0.25,
+            width: isDesktop
+                ? size.width * 0.3 // Adjust width accordingly
+                : isTablet
+                    ? size.width * 0.4
+                    : size.width * 0.5,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(height: isDesktop ? size.height * 0.4 : size.height * 0.05),
           _buildTitle(isDesktop, isTablet),
           SizedBox(height: size.height * 0.02),
           _buildSubtitle(isDesktop, isTablet, contentWidth),
