@@ -3,6 +3,7 @@
 import 'package:deliveryboy/Onboarding/SignIn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class IntroductionPage extends StatefulWidget {
   const IntroductionPage({super.key});
@@ -91,7 +92,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
   }
 
   Widget _buildTitle(bool isDesktop, bool isTablet) => Text(
-        "Royal Oven",
+        "Royal Oven's Delivery Pal",
         style: GoogleFonts.poppins(
           fontSize: isDesktop
               ? 64
@@ -108,7 +109,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
         width: contentWidth,
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Text(
-          "Customize delicious cakes easily with us.",
+          "Go online, accept your orders and make customers happy with your services.",
           textAlign: TextAlign.center,
           style: GoogleFonts.poppins(
             fontSize: isDesktop
@@ -153,7 +154,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
             ),
             child: Center(
               child: Text(
-                "Get Started",
+                "Go Online",
                 style: GoogleFonts.poppins(
                   color: const Color.fromARGB(255, 91, 21, 21),
                   fontSize: isDesktop
