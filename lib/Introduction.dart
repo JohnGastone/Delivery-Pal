@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:deliveryboy/Delivery/HomePage.dart';
+import 'package:deliveryboy/Init.dart';
 import 'package:deliveryboy/Onboarding/SignIn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -149,7 +150,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
           onTap: () {
             Navigator.push(
               context,
-              CupertinoPageRoute(builder: (context) => const HomePage()),
+              CupertinoPageRoute(builder: (context) => const InitPage()),
             );
           },
           child: Container(
