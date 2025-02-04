@@ -52,7 +52,7 @@ class _InitPageState extends State<InitPage> {
                               : const Color.fromARGB(255, 33, 31, 31),
                           BlendMode.srcIn),
                       child: Image.asset(
-                        "./assets/bike.png",
+                        "./assets/order.png",
                         height: 30,
                         width: 30,
                       ),
@@ -67,7 +67,7 @@ class _InitPageState extends State<InitPage> {
                               : const Color.fromARGB(255, 33, 31, 31),
                           BlendMode.srcIn),
                       child: Image.asset(
-                        "./assets/order.png",
+                        "./assets/bike.png",
                         height: 30,
                         width: 30,
                       ),
@@ -76,12 +76,13 @@ class _InitPageState extends State<InitPage> {
                   ),
                   BottomNavigationBarItem(
                     icon: ColorFiltered(
-                        colorFilter: ColorFilter.mode(
-                            _selectedIndex == 2
-                                ? const Color.fromARGB(200, 91, 21, 21)
-                                : const Color.fromARGB(255, 33, 31, 31),
-                            BlendMode.srcIn),
-                        child: Icon(CupertinoIcons.person)),
+                      colorFilter: ColorFilter.mode(
+                          _selectedIndex == 2
+                              ? const Color.fromARGB(200, 91, 21, 21)
+                              : const Color.fromARGB(255, 33, 31, 31),
+                          BlendMode.srcIn),
+                      child: Icon(CupertinoIcons.person),
+                    ),
                     label: 'Profile',
                   ),
                 ],
@@ -90,6 +91,10 @@ class _InitPageState extends State<InitPage> {
                 unselectedItemColor: const Color.fromARGB(255, 33, 31, 31),
                 onTap: _onItemTapped,
                 elevation: 10,
+
+                // ✅ Hide labels for unselected items
+                showSelectedLabels: true,
+                showUnselectedLabels: false,
               ),
             ),
           )
