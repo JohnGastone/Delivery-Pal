@@ -28,7 +28,7 @@ class _InitPageState extends State<InitPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.withOpacity(0.9),
+      backgroundColor: Colors.grey,
       body: Stack(
         children: [
           _pages[_selectedIndex],
@@ -42,7 +42,7 @@ class _InitPageState extends State<InitPage> {
                     fontSize: 13, fontWeight: FontWeight.bold),
                 unselectedLabelStyle: GoogleFonts.poppins(
                     fontSize: 13, fontWeight: FontWeight.bold),
-                backgroundColor: const Color.fromARGB(58, 52, 51, 51),
+                backgroundColor: Colors.white,
                 items: <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
                     icon: ColorFiltered(
