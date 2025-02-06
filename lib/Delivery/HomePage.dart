@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _toggleSelectedOption(String option) {
-    // Update the state with the new selected option
     setState(() {
       _selectedOption = option;
     });
@@ -30,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -46,434 +46,71 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              Icon(
+              const Icon(
                 CupertinoIcons.bell_fill,
                 color: Colors.white,
-              )
+              ),
             ],
           ),
         ),
       ),
       body: Stack(
         children: [
-          SingleChildScrollView(
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: screenHeight * 0.2,
-                  ),
-                  Container(
-                    width: screenWidth * 0.9,
-                    height: screenHeight * 0.35,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                        border: Border.all(
-                            width: 1, color: Color.fromARGB(200, 91, 21, 21))),
-                    child: Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Column(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Branch Address",
-                                style: GoogleFonts.poppins(
-                                    color: Colors.grey, fontSize: 14),
-                              ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.location_solid,
-                                    color: Color.fromARGB(200, 91, 21, 21),
-                                  ),
-                                  SizedBox(width: 8),
-                                  Text(
-                                    "123 Main Street",
-                                    style: GoogleFonts.poppins(fontSize: 16),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Client Address",
-                                style: GoogleFonts.poppins(
-                                    color: Colors.grey, fontSize: 14),
-                              ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.location_solid,
-                                    color: Color.fromARGB(200, 91, 21, 21),
-                                  ),
-                                  SizedBox(width: 8),
-                                  Text(
-                                    "456 Minor Street",
-                                    style: GoogleFonts.poppins(fontSize: 16),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Divider(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Order Pickup Time",
-                                    style: GoogleFonts.poppins(
-                                        color: Colors.grey, fontSize: 14),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(CupertinoIcons.clock),
-                                      Text(
-                                        "8:00 AM",
-                                        style:
-                                            GoogleFonts.poppins(fontSize: 16),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Delivery Time",
-                                    style: GoogleFonts.poppins(
-                                        color: Colors.grey, fontSize: 14),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(CupertinoIcons.clock),
-                                      Text(
-                                        "4:00 PM",
-                                        style:
-                                            GoogleFonts.poppins(fontSize: 16),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Divider(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Approx: ",
-                                    style:
-                                        GoogleFonts.poppins(color: Colors.grey),
-                                  ),
-                                  Text(
-                                    " 5 km",
-                                    style: GoogleFonts.poppins(),
-                                  )
-                                ],
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              SizedBox(
-                                width: screenWidth * 0.5,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      height: screenHeight * 0.05,
-                                      width: screenWidth * 0.22,
-                                      decoration: BoxDecoration(
-                                          color: Colors.green,
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12)),
-                                          border: Border.all(
-                                            width: 1,
-                                            color:
-                                                Color.fromARGB(200, 91, 21, 21),
-                                          )),
-                                      child: Center(
-                                        child: Text(
-                                          "ACCEPT",
-                                          style: GoogleFonts.poppins(
-                                            color:
-                                                Color.fromARGB(200, 91, 21, 21),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: screenHeight * 0.05,
-                                      width: screenWidth * 0.22,
-                                      decoration: BoxDecoration(
-                                          color: Colors.red,
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12)),
-                                          border: Border.all(
-                                            width: 1,
-                                            color:
-                                                Color.fromARGB(200, 91, 21, 21),
-                                          )),
-                                      child: Center(
-                                        child: Text(
-                                          "REJECT",
-                                          style: GoogleFonts.poppins(
-                                            color:
-                                                Color.fromARGB(200, 91, 21, 21),
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+          // 1. SingleChildScrollView (Bottom-most)
+          Positioned.fill(
+            // Use Positioned.fill to make it take all available space
+            top: screenHeight * 0.2,
+            child: SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: screenHeight * 0.01,
+                    ),
+                    // Your Containers Here (the ones that should scroll)
+                    Container(
+                      width: screenWidth * 0.9,
+                      height: screenHeight * 0.35,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12)),
+                          border: Border.all(
+                              width: 1,
+                              color: const Color.fromARGB(200, 91, 21, 21))),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12),
+                        child:
+                            ColumnContent(), // A simplified column to hold the widgets
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.01,
-                  ),
-                  Container(
-                    width: screenWidth * 0.9,
-                    height: screenHeight * 0.35,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                        border: Border.all(
-                            width: 1, color: Color.fromARGB(200, 91, 21, 21))),
-                    child: Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Column(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Branch Address",
-                                style: GoogleFonts.poppins(
-                                    color: Colors.grey, fontSize: 14),
-                              ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.location_solid,
-                                    color: Color.fromARGB(200, 91, 21, 21),
-                                  ),
-                                  SizedBox(width: 8),
-                                  Text(
-                                    "123 Main Street",
-                                    style: GoogleFonts.poppins(fontSize: 16),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Client Address",
-                                style: GoogleFonts.poppins(
-                                    color: Colors.grey, fontSize: 14),
-                              ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.location_solid,
-                                    color: Color.fromARGB(200, 91, 21, 21),
-                                  ),
-                                  SizedBox(width: 8),
-                                  Text(
-                                    "456 Minor Street",
-                                    style: GoogleFonts.poppins(fontSize: 16),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Divider(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Order Pickup Time",
-                                    style: GoogleFonts.poppins(
-                                        color: Colors.grey, fontSize: 14),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(CupertinoIcons.clock),
-                                      Text(
-                                        "8:00 AM",
-                                        style:
-                                            GoogleFonts.poppins(fontSize: 16),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Delivery Time",
-                                    style: GoogleFonts.poppins(
-                                        color: Colors.grey, fontSize: 14),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(CupertinoIcons.clock),
-                                      Text(
-                                        "4:00 PM",
-                                        style:
-                                            GoogleFonts.poppins(fontSize: 16),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Divider(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Approx: ",
-                                    style:
-                                        GoogleFonts.poppins(color: Colors.grey),
-                                  ),
-                                  Text(
-                                    " 5 km",
-                                    style: GoogleFonts.poppins(),
-                                  )
-                                ],
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              SizedBox(
-                                width: screenWidth * 0.5,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      height: screenHeight * 0.05,
-                                      width: screenWidth * 0.22,
-                                      decoration: BoxDecoration(
-                                          color: Colors.green,
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12)),
-                                          border: Border.all(
-                                            width: 1,
-                                            color:
-                                                Color.fromARGB(200, 91, 21, 21),
-                                          )),
-                                      child: Center(
-                                        child: Text(
-                                          "ACCEPT",
-                                          style: GoogleFonts.poppins(
-                                            color:
-                                                Color.fromARGB(200, 91, 21, 21),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: screenHeight * 0.05,
-                                      width: screenWidth * 0.22,
-                                      decoration: BoxDecoration(
-                                          color: Colors.red,
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12)),
-                                          border: Border.all(
-                                            width: 1,
-                                            color:
-                                                Color.fromARGB(200, 91, 21, 21),
-                                          )),
-                                      child: Center(
-                                        child: Text(
-                                          "REJECT",
-                                          style: GoogleFonts.poppins(
-                                            color:
-                                                Color.fromARGB(200, 91, 21, 21),
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+                    SizedBox(
+                      height: screenHeight * 0.01,
+                    ),
+                    Container(
+                      width: screenWidth * 0.9,
+                      height: screenHeight * 0.35,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12)),
+                          border: Border.all(
+                              width: 1,
+                              color: const Color.fromARGB(200, 91, 21, 21))),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12),
+                        child: ColumnContent(),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.2,
-                  )
-                ],
+                    SizedBox(
+                      height: screenHeight * 0.2,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
+
+          // 2. Date Picker and Availability Switch (Middle)
           Positioned(
             right: 0,
             left: 0,
@@ -486,16 +123,17 @@ class _HomePageState extends State<HomePage> {
                   // Date Picker Container
                   Container(
                     height: screenHeight * 0.06,
-                    width: screenWidth * 0.38, // Adjust width to match UI
+                    width: screenWidth * 0.38,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
-                      border: Border.all(width: 1, color: Color(0xFF5B1515)),
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                      border:
+                          Border.all(width: 1, color: const Color(0xFF5B1515)),
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
                     ),
                     child: Row(
                       children: [
                         IconButton(
-                          icon: Icon(CupertinoIcons.calendar_today,
+                          icon: const Icon(CupertinoIcons.calendar_today,
                               size: 20, color: Colors.grey),
                           onPressed: () async {
                             DateTime? pickedDate = await showDatePicker(
@@ -509,9 +147,8 @@ class _HomePageState extends State<HomePage> {
                               builder: (context, child) {
                                 return Theme(
                                   data: Theme.of(context).copyWith(
-                                    colorScheme: ColorScheme.light(
-                                      primary: Color(
-                                          0xFF5B1515), // Dark Red as in UI
+                                    colorScheme: const ColorScheme.light(
+                                      primary: Color(0xFF5B1515),
                                       onPrimary: Colors.white,
                                       onSurface: Colors.black,
                                     ),
@@ -520,7 +157,6 @@ class _HomePageState extends State<HomePage> {
                                 );
                               },
                             );
-
                             if (pickedDate != null) {
                               String formattedDate =
                                   "${pickedDate.day.toString().padLeft(2)} "
@@ -542,7 +178,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-
                   // Availability Switch
                   Row(
                     children: [
@@ -554,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                       Switch(
                         value: isAvailable,
                         activeColor:
-                            Color(0xFF5B1515), // Custom color matching UI
+                            const Color(0xFF5B1515), // Custom color matching UI
                         onChanged: (bool value) {
                           setState(() {
                             isAvailable = value;
@@ -567,6 +202,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+
+          // 3. New Orders/Active Orders Toggle (Top-most)
           Positioned(
             top: screenHeight * 0.1,
             left: 0,
@@ -589,7 +226,7 @@ class _HomePageState extends State<HomePage> {
                           height: 50,
                           decoration: BoxDecoration(
                             color: _selectedOption == 'New Orders'
-                                ? Color.fromARGB(200, 91, 21, 21)
+                                ? const Color.fromARGB(200, 91, 21, 21)
                                 : const Color.fromARGB(255, 196, 195, 195),
                           ),
                           child: Center(
@@ -613,7 +250,7 @@ class _HomePageState extends State<HomePage> {
                           height: 50,
                           decoration: BoxDecoration(
                             color: _selectedOption == 'Active Orders'
-                                ? Color.fromARGB(200, 91, 21, 21)
+                                ? const Color.fromARGB(200, 91, 21, 21)
                                 : const Color.fromARGB(255, 196, 195, 195),
                           ),
                           child: Center(
@@ -633,14 +270,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-            ),
-          ),
-          Positioned(
-            top: screenHeight * 0.2,
-            left: 0,
-            right: 0,
-            child: SizedBox(
-              height: screenHeight * 0.4,
             ),
           ),
         ],
@@ -663,6 +292,188 @@ class _HomePageState extends State<HomePage> {
       "Nov",
       "Dec"
     ];
-    return monthNames[month - 1]; // Convert month number to name
+    return monthNames[month - 1];
+  }
+}
+
+class ColumnContent extends StatelessWidget {
+  const ColumnContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AddressText(title: "Branch Address", address: "123 Main Street"),
+        SizedBox(height: 10),
+        AddressText(title: "Client Address", address: "456 Minor Street"),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Divider(
+            color: Colors.grey,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TimeColumn(title: "Order Pickup Time", time: "8:00 AM"),
+            TimeColumn(title: "Delivery Time", time: "4:00 PM"),
+          ],
+        ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Divider(
+            color: Colors.grey,
+          ),
+        ),
+        DistanceAndActions(),
+      ],
+    );
+  }
+}
+
+class AddressText extends StatelessWidget {
+  const AddressText({
+    super.key,
+    required this.title,
+    required this.address,
+  });
+
+  final String title;
+  final String address;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: GoogleFonts.poppins(color: Colors.grey, fontSize: 14),
+        ),
+        Row(
+          children: [
+            const Icon(
+              CupertinoIcons.location_solid,
+              color: Color.fromARGB(200, 91, 21, 21),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              address,
+              style: GoogleFonts.poppins(fontSize: 16),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class TimeColumn extends StatelessWidget {
+  const TimeColumn({
+    super.key,
+    required this.title,
+    required this.time,
+  });
+
+  final String title;
+  final String time;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: GoogleFonts.poppins(color: Colors.grey, fontSize: 14),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Row(
+          children: [
+            const Icon(CupertinoIcons.clock),
+            Text(
+              time,
+              style: GoogleFonts.poppins(fontSize: 16),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class DistanceAndActions extends StatelessWidget {
+  const DistanceAndActions({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    return Row(
+      children: [
+        Row(
+          children: [
+            Text(
+              "Approx: ",
+              style: GoogleFonts.poppins(color: Colors.grey),
+            ),
+            Text(
+              " 5 km",
+              style: GoogleFonts.poppins(),
+            ),
+          ],
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+        SizedBox(
+          width: screenWidth * 0.5,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                height: screenHeight * 0.05,
+                width: screenWidth * 0.22,
+                decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    border: Border.all(
+                        width: 1,
+                        color: const Color.fromARGB(200, 91, 21, 21))),
+                child: Center(
+                  child: Text(
+                    "ACCEPT",
+                    style: GoogleFonts.poppins(
+                      color: const Color.fromARGB(200, 91, 21, 21),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                height: screenHeight * 0.05,
+                width: screenWidth * 0.22,
+                decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    border: Border.all(
+                        width: 1,
+                        color: const Color.fromARGB(200, 91, 21, 21))),
+                child: Center(
+                  child: Text(
+                    "REJECT",
+                    style: GoogleFonts.poppins(
+                      color: const Color.fromARGB(200, 91, 21, 21),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }
