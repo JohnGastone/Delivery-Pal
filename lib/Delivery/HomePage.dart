@@ -56,9 +56,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Stack(
         children: [
-          // 1. SingleChildScrollView (Bottom-most)
           Positioned.fill(
-            // Use Positioned.fill to make it take all available space
             top: screenHeight * 0.2,
             child: SingleChildScrollView(
               child: Center(
@@ -68,7 +66,6 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: screenHeight * 0.01,
                     ),
-                    // Your Containers Here (the ones that should scroll)
                     Container(
                       width: screenWidth * 0.9,
                       height: screenHeight * 0.35,
@@ -80,8 +77,41 @@ class _HomePageState extends State<HomePage> {
                               color: const Color.fromARGB(200, 91, 21, 21))),
                       child: const Padding(
                         padding: EdgeInsets.all(12),
-                        child:
-                            ColumnContent(), // A simplified column to hold the widgets
+                        child: ColumnContent(),
+                      ),
+                    ),
+                    SizedBox(
+                      height: screenHeight * 0.01,
+                    ),
+                    Container(
+                      width: screenWidth * 0.9,
+                      height: screenHeight * 0.35,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12)),
+                          border: Border.all(
+                              width: 1,
+                              color: const Color.fromARGB(200, 91, 21, 21))),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12),
+                        child: ColumnContent(),
+                      ),
+                    ),
+                    SizedBox(
+                      height: screenHeight * 0.01,
+                    ),
+                    Container(
+                      width: screenWidth * 0.9,
+                      height: screenHeight * 0.35,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12)),
+                          border: Border.all(
+                              width: 1,
+                              color: const Color.fromARGB(200, 91, 21, 21))),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12),
+                        child: ColumnContent(),
                       ),
                     ),
                     SizedBox(
@@ -109,8 +139,68 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0, bottom: 60),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: SizedBox(
+                width: screenWidth * 0.158,
+                height: screenHeight * 0.095,
+                child: InkWell(
+                  onTap: () async {
+                    final Uri phoneUri = Uri(
+                      scheme: 'tel',
+                      path: '+255624839009', // FUDI Customer Support Center
+                    );
 
-          // 2. Date Picker and Availability Switch (Middle)
+                    try {
+                      if (await canLaunchUrl(phoneUri)) {
+                        await launchUrl(
+                          phoneUri,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      } else {
+                        throw 'Could not launch $phoneUri';
+                      }
+                    } catch (e) {
+                      if (kDebugMode) {
+                        print('Error launching phone call: $e');
+                      }
+                    }
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 1, color: Colors.green)),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Center(
+                              child: Text(
+                                "Help",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 10, color: Colors.green),
+                              ),
+                            ),
+                            Icon(
+                              CupertinoIcons.phone,
+                              color: Colors.green,
+                              size: 20,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
           Positioned(
             right: 0,
             left: 0,
@@ -120,7 +210,6 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Date Picker Container
                   Container(
                     height: screenHeight * 0.06,
                     width: screenWidth * 0.38,
@@ -161,7 +250,7 @@ class _HomePageState extends State<HomePage> {
                               String formattedDate =
                                   "${pickedDate.day.toString().padLeft(2)} "
                                   "${_getMonthName(pickedDate.month)} "
-                                  "${pickedDate.year}"; // Format similar to UI
+                                  "${pickedDate.year}";
                               setState(() {
                                 _datePickerController.text = formattedDate;
                               });
@@ -170,7 +259,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           _datePickerController.text.isEmpty
-                              ? _formatTodayDate() // Placeholder as seen in UI
+                              ? _formatTodayDate()
                               : _datePickerController.text,
                           style: GoogleFonts.poppins(
                               fontSize: 16, color: Colors.black),
@@ -178,7 +267,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  // Availability Switch
                   Row(
                     children: [
                       Text(
@@ -188,8 +276,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Switch(
                         value: isAvailable,
-                        activeColor:
-                            const Color(0xFF5B1515), // Custom color matching UI
+                        activeColor: const Color(0xFF5B1515),
                         onChanged: (bool value) {
                           setState(() {
                             isAvailable = value;
@@ -202,8 +289,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-
-          // 3. New Orders/Active Orders Toggle (Top-most)
           Positioned(
             top: screenHeight * 0.1,
             left: 0,
@@ -218,7 +303,6 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      // New Orders button
                       GestureDetector(
                         onTap: () => _toggleSelectedOption('New Orders'),
                         child: Container(
@@ -242,7 +326,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      // Active Orders button
                       GestureDetector(
                         onTap: () => _toggleSelectedOption('Active Orders'),
                         child: Container(
@@ -304,9 +387,31 @@ class ColumnContent extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AddressText(title: "Branch Address", address: "123 Main Street"),
-        SizedBox(height: 10),
-        AddressText(title: "Client Address", address: "456 Minor Street"),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                OrderText(
+                    orderNumber: "Order #1", clientName: "Mama Kilakshal"),
+                SizedBox(height: 10),
+                OrderText(
+                    orderNumber: "Order #2", clientName: "Baba Mbelemende"),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AddressText(
+                    title: "Branch Address", address: "123 Main Street"),
+                SizedBox(height: 10),
+                AddressText(
+                    title: "Client Address", address: "456 Minor Street"),
+              ],
+            )
+          ],
+        ),
         Padding(
           padding: EdgeInsets.all(8.0),
           child: Divider(
@@ -327,6 +432,43 @@ class ColumnContent extends StatelessWidget {
           ),
         ),
         DistanceAndActions(),
+      ],
+    );
+  }
+}
+
+class OrderText extends StatelessWidget {
+  const OrderText({
+    super.key,
+    required this.orderNumber,
+    required this.clientName,
+  });
+
+  final String orderNumber;
+  final String clientName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          orderNumber,
+          style: GoogleFonts.poppins(color: Colors.grey, fontSize: 13),
+        ),
+        Row(
+          children: [
+            const Icon(
+              CupertinoIcons.location_solid,
+              color: Color.fromARGB(200, 91, 21, 21),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              clientName,
+              style: GoogleFonts.poppins(fontSize: 14),
+            ),
+          ],
+        ),
       ],
     );
   }
@@ -465,7 +607,7 @@ class DistanceAndActions extends StatelessWidget {
                   child: Text(
                     "REJECT",
                     style: GoogleFonts.poppins(
-                      color: const Color.fromARGB(200, 91, 21, 21),
+                      color: Colors.white,
                     ),
                   ),
                 ),
