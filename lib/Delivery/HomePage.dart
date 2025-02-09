@@ -173,7 +173,8 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(width: 1, color: Colors.green)),
+                        border: Border.all(
+                            width: 1, color: Color.fromARGB(200, 91, 21, 21))),
                     child: CircleAvatar(
                       backgroundColor: Colors.transparent,
                       child: Center(
@@ -186,12 +187,13 @@ class _HomePageState extends State<HomePage> {
                               child: Text(
                                 "Help",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 10, color: Colors.green),
+                                    fontSize: 10,
+                                    color: Color.fromARGB(200, 91, 21, 21)),
                               ),
                             ),
                             Icon(
                               CupertinoIcons.phone,
-                              color: Colors.green,
+                              color: Color.fromARGB(200, 91, 21, 21),
                               size: 20,
                             )
                           ],
