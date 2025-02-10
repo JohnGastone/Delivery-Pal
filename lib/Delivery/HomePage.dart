@@ -77,60 +77,11 @@ class _HomePageState extends State<HomePage> {
                           border: Border.all(
                               width: 1,
                               color: const Color.fromARGB(200, 91, 21, 21))),
-                      child: const Padding(
+                      child: Padding(
                         padding: EdgeInsets.all(12),
-                        child: ColumnContent(),
-                      ),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.01,
-                    ),
-                    Container(
-                      width: screenWidth * 0.9,
-                      height: screenHeight * 0.35,
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(12)),
-                          border: Border.all(
-                              width: 1,
-                              color: const Color.fromARGB(200, 91, 21, 21))),
-                      child: const Padding(
-                        padding: EdgeInsets.all(12),
-                        child: ColumnContent(),
-                      ),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.01,
-                    ),
-                    Container(
-                      width: screenWidth * 0.9,
-                      height: screenHeight * 0.35,
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(12)),
-                          border: Border.all(
-                              width: 1,
-                              color: const Color.fromARGB(200, 91, 21, 21))),
-                      child: const Padding(
-                        padding: EdgeInsets.all(12),
-                        child: ColumnContent(),
-                      ),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.01,
-                    ),
-                    Container(
-                      width: screenWidth * 0.9,
-                      height: screenHeight * 0.35,
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(12)),
-                          border: Border.all(
-                              width: 1,
-                              color: const Color.fromARGB(200, 91, 21, 21))),
-                      child: const Padding(
-                        padding: EdgeInsets.all(12),
-                        child: ColumnContent(),
+                        child: ColumnContent(
+                          isAvailable: isAvailable,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -152,7 +103,8 @@ class _HomePageState extends State<HomePage> {
                   onTap: () async {
                     final Uri phoneUri = Uri(
                       scheme: 'tel',
-                      path: '+255624839009', // FUDI Customer Support Center
+                      path:
+                          '+255624839009', // Royal Oven Customer Support Center
                     );
 
                     try {
@@ -384,24 +336,25 @@ class _HomePageState extends State<HomePage> {
 }
 
 class ColumnContent extends StatelessWidget {
-  const ColumnContent({super.key});
+  final bool isAvailable;
+
+  const ColumnContent({super.key, required this.isAvailable});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                OrderText(
-                    orderNumber: "Order #1", clientName: "Mama Kilakshal"),
+                OrderText(orderNumber: "Order Number", clientName: "#100"),
                 SizedBox(height: 10),
                 OrderText(
-                    orderNumber: "Order #2", clientName: "Baba Mbelemende"),
+                    orderNumber: "Client Name", clientName: "Baba Mbelemende"),
               ],
             ),
             Column(
@@ -416,26 +369,28 @@ class ColumnContent extends StatelessWidget {
             )
           ],
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(8.0),
           child: Divider(
             color: Colors.grey,
           ),
         ),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TimeColumn(title: "Order Pickup Time", time: "8:00 AM"),
             TimeColumn(title: "Delivery Time", time: "4:00 PM"),
           ],
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(8.0),
           child: Divider(
             color: Colors.grey,
           ),
         ),
-        DistanceAndActions(),
+        DistanceAndActions(
+          isAvailable: isAvailable,
+        ),
       ],
     );
   }
@@ -458,20 +413,11 @@ class OrderText extends StatelessWidget {
       children: [
         Text(
           orderNumber,
-          style: GoogleFonts.poppins(color: Colors.grey, fontSize: 13),
+          style: GoogleFonts.poppins(color: Colors.grey, fontSize: 14),
         ),
-        Row(
-          children: [
-            const Icon(
-              CupertinoIcons.location_solid,
-              color: Color.fromARGB(200, 91, 21, 21),
-            ),
-            const SizedBox(width: 8),
-            Text(
-              clientName,
-              style: GoogleFonts.poppins(fontSize: 14),
-            ),
-          ],
+        Text(
+          clientName,
+          style: GoogleFonts.poppins(fontSize: 14),
         ),
       ],
     );
@@ -552,7 +498,8 @@ class TimeColumn extends StatelessWidget {
 }
 
 class DistanceAndActions extends StatelessWidget {
-  const DistanceAndActions({super.key});
+  final bool isAvailable;
+  const DistanceAndActions({super.key, required this.isAvailable});
 
   @override
   Widget build(BuildContext context) {
@@ -580,20 +527,27 @@ class DistanceAndActions extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: screenHeight * 0.05,
-                width: screenWidth * 0.22,
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: const BorderRadius.all(Radius.circular(12)),
-                    border: Border.all(
-                        width: 1,
-                        color: const Color.fromARGB(200, 91, 21, 21))),
-                child: Center(
-                  child: Text(
-                    "ACCEPT",
-                    style: GoogleFonts.poppins(
-                      color: const Color.fromARGB(200, 91, 21, 21),
+              InkWell(
+                onTap: isAvailable
+                    ? () {
+                        // Handle accept action
+                      }
+                    : null,
+                child: Container(
+                  height: screenHeight * 0.05,
+                  width: screenWidth * 0.22,
+                  decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                      border: Border.all(
+                          width: 1,
+                          color: const Color.fromARGB(200, 91, 21, 21))),
+                  child: Center(
+                    child: Text(
+                      "ACCEPT",
+                      style: GoogleFonts.poppins(
+                        color: const Color.fromARGB(200, 91, 21, 21),
+                      ),
                     ),
                   ),
                 ),

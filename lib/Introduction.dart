@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:deliveryboy/Delivery/HomePage.dart';
 import 'package:deliveryboy/Init.dart';
 import 'package:deliveryboy/Onboarding/SignIn.dart';
 import 'package:flutter/cupertino.dart';
