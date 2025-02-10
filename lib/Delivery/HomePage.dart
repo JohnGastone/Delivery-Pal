@@ -499,6 +499,7 @@ class TimeColumn extends StatelessWidget {
 
 class DistanceAndActions extends StatelessWidget {
   final bool isAvailable;
+
   const DistanceAndActions({super.key, required this.isAvailable});
 
   void _showAvailabilityDialog(BuildContext context) {
@@ -563,16 +564,15 @@ class DistanceAndActions extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              InkWell(
-                onTap: isAvailable
-                    ? () {
-                        if (isAvailable) {
-                          // Handle accept action
-                        } else {
-                          _showAvailabilityDialog(context);
-                        }
-                      }
-                    : null,
+              GestureDetector(
+                onTap: () {
+                  if (!isAvailable) {
+                    _showAvailabilityDialog(context);
+                  } else {
+                    // Handle accept action
+                    print('Order accepted');
+                  }
+                },
                 child: Container(
                   height: screenHeight * 0.05,
                   width: screenWidth * 0.22,
