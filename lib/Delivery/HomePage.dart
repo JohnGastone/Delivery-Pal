@@ -537,7 +537,7 @@ class DistanceAndActions extends StatelessWidget {
                   height: screenHeight * 0.05,
                   width: screenWidth * 0.22,
                   decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: isAvailable ? Colors.green : Colors.grey,
                       borderRadius: const BorderRadius.all(Radius.circular(12)),
                       border: Border.all(
                           width: 1,
