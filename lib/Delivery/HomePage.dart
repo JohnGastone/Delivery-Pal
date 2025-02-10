@@ -501,6 +501,42 @@ class DistanceAndActions extends StatelessWidget {
   final bool isAvailable;
   const DistanceAndActions({super.key, required this.isAvailable});
 
+  void _showAvailabilityDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Not Available',
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          content: Text(
+            'Please turn on the availability toggle to accept orders.',
+            style: GoogleFonts.poppins(),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'OK',
+                style: GoogleFonts.poppins(
+                  color: const Color.fromARGB(200, 91, 21, 21),
+                ),
+              ),
+            ),
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -530,7 +566,11 @@ class DistanceAndActions extends StatelessWidget {
               InkWell(
                 onTap: isAvailable
                     ? () {
-                        // Handle accept action
+                        if (isAvailable) {
+                          // Handle accept action
+                        } else {
+                          _showAvailabilityDialog(context);
+                        }
                       }
                     : null,
                 child: Container(
