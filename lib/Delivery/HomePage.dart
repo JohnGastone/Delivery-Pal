@@ -508,14 +508,14 @@ class DistanceAndActions extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            'Not Available',
+            'You Are Not Available!!',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.bold,
             ),
           ),
           content: Text(
             'Please turn on the availability toggle to accept orders.',
-            style: GoogleFonts.poppins(),
+            style: GoogleFonts.poppins(fontSize: 15),
           ),
           actions: [
             TextButton(
@@ -570,7 +570,6 @@ class DistanceAndActions extends StatelessWidget {
                     _showAvailabilityDialog(context);
                   } else {
                     // Handle accept action
-                    print('Order accepted');
                   }
                 },
                 child: Container(
