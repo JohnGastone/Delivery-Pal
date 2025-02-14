@@ -83,12 +83,12 @@ class _IntroductionPageState extends State<IntroductionPage> {
           Image.asset(
             'assets/delivery.png',
             height: isDesktop
-                ? size.height * 0.35 // Adjust height based on screen size
+                ? size.height * 0.35 
                 : isTablet
                     ? size.height * 0.3
                     : size.height * 0.25,
             width: isDesktop
-                ? size.width * 0.3 // Adjust width accordingly
+                ? size.width * 0.3 
                 : isTablet
                     ? size.width * 0.4
                     : size.width * 0.5,
