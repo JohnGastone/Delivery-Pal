@@ -388,7 +388,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 DropdownButton<String>(
                                   value: selectedCountryCode,
                                   underline:
-                                      SizedBox(), // Remove the default underline
+                                      SizedBox(), 
                                   icon: Icon(Icons.arrow_drop_down,
                                       color: Colors.grey),
                                   onChanged: (String? newValue) {
