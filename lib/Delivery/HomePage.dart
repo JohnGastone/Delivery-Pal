@@ -232,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Switch(
                         value: isAvailable,
-                        activeColor: const Color(0xFF5B1515),
+                        activeThumbColor: const Color(0xFF5B1515),
                         onChanged: (bool value) {
                           setState(() {
                             isAvailable = value;
